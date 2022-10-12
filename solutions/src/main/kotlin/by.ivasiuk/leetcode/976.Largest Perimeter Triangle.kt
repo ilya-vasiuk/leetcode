@@ -1,5 +1,9 @@
 package by.ivasiuk.leetcode
 
+/**
+ * @see <a href="https://leetcode.com/problems/largest-perimeter-triangle/">
+ *   Largest Perimeter Triangle</a>
+ */
 class LargestPerimeterTriangle {
   fun largestPerimeter(nums: IntArray): Int {
     val sortedNums = nums.sortedDescending()
