@@ -17,16 +17,16 @@ class MaximumSubarray {
     }
 
     val middle = (right + left) / 2
-    var currentSum = Int.MIN_VALUE
+    var currentSum = 0
 
-    var sumLeft = 0
+    var sumLeft = Int.MIN_VALUE
     for (i in middle downTo left) {
       currentSum += nums[i]
       sumLeft = max(currentSum, sumLeft)
     }
 
-    var sumRight = 0
-    currentSum = Int.MIN_VALUE
+    currentSum = 0
+    var sumRight = Int.MIN_VALUE
     for (i in middle + 1 until right + 1) {
       currentSum += nums[i]
       sumRight = max(currentSum, sumRight)
