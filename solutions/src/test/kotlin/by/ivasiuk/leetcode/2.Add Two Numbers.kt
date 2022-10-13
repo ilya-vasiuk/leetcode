@@ -2,6 +2,7 @@ package by.ivasiuk.leetcode
 
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
+import by.ivasiuk.leetcode.AddTwoNumbers.ListNode
 
 class AddTwoNumbersTest {
   private val solution = AddTwoNumbers()
