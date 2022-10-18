@@ -3,7 +3,7 @@ package by.ivasiuk.leetcode
 import kotlin.math.min
 
 /**
- * @see <a href="https://leetcode.com/problems/dstring-compression-ii/">
+ * @see <a href="https://leetcode.com/problems/string-compression-ii/">
  *   String Compression II</a>
  */
 //TODO: stolen solution
