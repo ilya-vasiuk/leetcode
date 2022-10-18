@@ -1,23 +1,11 @@
 package by.ivasiuk.leetcode
 
-import by.ivasiuk.leetcode.DeleteTheMiddleNodeOfALinkedList.ListNode
+import by.ivasiuk.leetcode.common.ListNode
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 
 class DeleteTheMiddleNodeOfALinkedListTest {
   private val solution = DeleteTheMiddleNodeOfALinkedList()
-
-  private fun ListNode?.toList(): List<Int> {
-    val list = mutableListOf<Int>()
-    var current = this
-
-    while (current != null) {
-      list.add(current.`val`)
-      current = current.next
-    }
-
-    return list
-  }
 
   @Test
   fun example1() {
@@ -36,7 +24,7 @@ class DeleteTheMiddleNodeOfALinkedListTest {
     }
 
     val result = solution.deleteMiddle(head)
-    assertContentEquals(listOf(1, 3, 4, 1, 2, 6), result.toList())
+    assertContentEquals(listOf(1, 3, 4, 1, 2, 6), result?.toList())
   }
 
   @Test
@@ -50,7 +38,7 @@ class DeleteTheMiddleNodeOfALinkedListTest {
     }
 
     val result = solution.deleteMiddle(head)
-    assertContentEquals(listOf(1, 2, 4), result.toList())
+    assertContentEquals(listOf(1, 2, 4), result?.toList())
   }
 
   @Test
@@ -58,7 +46,7 @@ class DeleteTheMiddleNodeOfALinkedListTest {
     val head = ListNode(1)
 
     val result = solution.deleteMiddle(head)
-    assertContentEquals(emptyList(), result.toList())
+    assertContentEquals(emptyList(), result?.toList() ?: emptyList())
   }
 
   @Test
@@ -68,6 +56,6 @@ class DeleteTheMiddleNodeOfALinkedListTest {
     }
 
     val result = solution.deleteMiddle(head)
-    assertContentEquals(listOf(1), result.toList())
+    assertContentEquals(listOf(1), result?.toList())
   }
 }

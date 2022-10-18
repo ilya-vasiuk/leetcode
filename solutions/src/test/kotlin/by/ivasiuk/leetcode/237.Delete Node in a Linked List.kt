@@ -2,22 +2,10 @@ package by.ivasiuk.leetcode
 
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
-import by.ivasiuk.leetcode.DeleteNodeInALinkedList.ListNode
+import by.ivasiuk.leetcode.common.ListNode
 
 class DeleteNodeInALinkedListTest {
   private val solution = DeleteNodeInALinkedList()
-
-  private fun ListNode?.toList(): List<Int> {
-    val list = mutableListOf<Int>()
-    var current = this
-
-    while (current != null) {
-      list.add(current.`val`)
-      current = current.next
-    }
-
-    return list
-  }
 
   @Test
   fun example1() {

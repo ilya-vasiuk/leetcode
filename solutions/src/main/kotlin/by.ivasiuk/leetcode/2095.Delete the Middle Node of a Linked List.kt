@@ -1,5 +1,7 @@
 package by.ivasiuk.leetcode
 
+import by.ivasiuk.leetcode.common.ListNode
+
 /**
  * @see <a href="https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/">
  *   Delete the Middle Node of a Linked List</a>
@@ -35,9 +37,5 @@ class DeleteTheMiddleNodeOfALinkedList {
     }
 
     return chainSize
-  }
-
-  class ListNode(var `val`: Int) {
-    var next: ListNode? = null
   }
 }

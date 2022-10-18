@@ -1,5 +1,7 @@
 package by.ivasiuk.leetcode
 
+import by.ivasiuk.leetcode.common.ListNode
+
 /**
  * @see <a href="https://leetcode.com/problems/add-two-numbers/">Add Two Numbers</a>
  */
@@ -22,9 +24,5 @@ class AddTwoNumbers {
     }
 
     return head.next
-  }
-
-  class ListNode(var `val`: Int) {
-    var next: ListNode? = null
   }
 }
