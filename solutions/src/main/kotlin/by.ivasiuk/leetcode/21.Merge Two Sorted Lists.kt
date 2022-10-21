@@ -7,32 +7,45 @@ import by.ivasiuk.leetcode.common.ListNode
  *   Merge Two Sorted Lists</a>
  */
 class MergeTwoSortedLists {
-  private var head: ListNode? = null
-  private var current3: ListNode? = null
-
   fun mergeTwoLists(list1: ListNode?, list2: ListNode?): ListNode? {
     var current1 = list1
     var current2 = list2
+    var tail: ListNode? = null
+    var head: ListNode? = null
 
     while (current1 != null || current2 != null) {
       if (current1 != null && current2 != null) {
         if (current1.`val` <= current2.`val`) {
-          putNode(current1.`val`)
+          if (tail == null) {
+            head = current1
+            tail = head
+          } else {
+            tail.next = current1
+            tail = tail.next
+          }
+
           current1 = current1.next
         } else {
-          putNode(current2.`val`)
+          if (tail == null) {
+            head = current2
+            tail = head
+          } else {
+            tail.next = current2
+            tail = tail.next
+          }
+
           current2 = current2.next
         }
       } else if (current1 != null) {
-        if (current3 != null) {
-          current3?.next = current1
+        if (tail != null) {
+          tail.next = current1
           break
         } else {
           return current1
         }
       } else {
-        if (current3 != null) {
-          current3?.next = current2
+        if (tail != null) {
+          tail.next = current2
           break
         } else {
           return current2
@@ -41,17 +54,5 @@ class MergeTwoSortedLists {
     }
 
     return head
-  }
-
-  private fun putNode(`val`: Int) {
-    val next = ListNode(`val`)
-
-    if (current3 == null) {
-      head = next
-      current3 = head
-    } else {
-      current3?.next = next
-      current3 = current3?.next
-    }
   }
 }
