@@ -5,20 +5,24 @@ package by.ivasiuk.leetcode
  *   Search a 2D Matrix</a>
  */
 class SearchA2DMatrix {
-  fun searchMatrix(matrix: Array<IntArray>, target: Int): Boolean {
-    for (i in matrix.indices) {
-      if (i < matrix.size - 1 && matrix[i + 1][0] < target) continue
-      for (j in matrix[i].indices) {
-        if (matrix[i][j] == target) {
-          return true
-        }
+  fun searchMatrix(matrix: Array<IntArray>, target: Int): Boolean =
+    searchMatrixBinary(matrix, 0, matrix.size * matrix[0].size, target)
 
-        if (matrix[i][j] > target) {
-          return false
-        }
-      }
+  private fun searchMatrixBinary(matrix: Array<IntArray>, left: Int, right: Int, target: Int): Boolean {
+    if (left >= right) {
+      return false
     }
 
-    return false
+    val middle = (right + left) / 2
+    val i = middle / matrix[0].size
+    val j = middle % matrix[0].size
+
+    return if (matrix[i][j] == target) {
+      true
+    } else if (matrix[i][j] > target) {
+      searchMatrixBinary(matrix, left, middle, target)
+    } else {
+      searchMatrixBinary(matrix, middle + 1, right, target)
+    }
   }
 }
