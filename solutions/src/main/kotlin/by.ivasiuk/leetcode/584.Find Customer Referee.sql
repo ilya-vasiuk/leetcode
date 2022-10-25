@@ -1,7 +1,7 @@
 select
-    name
+  name
 from
-    Customer
+  Customer
 where
-    referee_id is null or
-    referee_id <> 2
+  referee_id is null or
+  referee_id <> 2
