@@ -1,7 +1,7 @@
 select
-    employee_id,
-    if(name like 'M%' or mod(employee_id, 2) = 0, 0, salary) as bonus
+  employee_id,
+  if(name like 'M%' or mod(employee_id, 2) = 0, 0, salary) as bonus
 from
-    Employees
+  Employees
 order by
-    employee_id
+  employee_id
