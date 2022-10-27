@@ -20,6 +20,6 @@ dependencies {
 
 tasks.jacocoTestReport {
   reports {
-    csv.required.set(true)
+    csv.isEnabled = true
   }
 }
