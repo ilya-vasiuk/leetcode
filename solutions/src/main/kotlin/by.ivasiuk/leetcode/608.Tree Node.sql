@@ -1,0 +1,6 @@
+select
+  distinct t1.id,
+    if(t1.p_id is null, "Root", if(t2.id is null, "Leaf", "Inner")) as type
+from
+  Tree t1
+    left join Tree t2 on t1.id = t2.p_id
