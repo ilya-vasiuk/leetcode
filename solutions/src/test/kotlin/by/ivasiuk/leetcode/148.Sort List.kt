@@ -9,31 +9,17 @@ class SortListTest {
 
   @Test
   fun example1() {
-    val head = ListNode(4).also {
-      it.next = ListNode(2).also {
-        it.next = ListNode(1).also {
-          it.next = ListNode(3)
-        }
-      }
-    }
-
+    val head = ListNode.fromList(4, 2, 1, 3)
     val result = solution.sortList(head)
+
     assertContentEquals(listOf(1, 2, 3, 4), result?.toList())
   }
 
   @Test
   fun example2() {
-    val head = ListNode(-1).also {
-      it.next = ListNode(5).also {
-        it.next = ListNode(3).also {
-          it.next = ListNode(4).also {
-            it.next = ListNode(0)
-          }
-        }
-      }
-    }
-
+    val head = ListNode.fromList(-1, 5, 3, 4, 0)
     val result = solution.sortList(head)
+
     assertContentEquals(listOf(-1, 0, 3, 4, 5), result?.toList())
   }
 }

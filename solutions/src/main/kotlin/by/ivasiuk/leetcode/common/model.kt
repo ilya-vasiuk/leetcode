@@ -14,6 +14,24 @@ class ListNode(var `val`: Int) {
 
     return list
   }
+
+  companion object {
+    fun fromList(vararg nums: Int): ListNode? {
+      if (nums.isEmpty()) {
+        return null
+      }
+
+      val head = ListNode(nums[0])
+      var current = head
+
+      for (i in 1 until nums.size) {
+        current.next = ListNode(nums[i])
+        current = current.next!!
+      }
+
+      return head
+    }
+  }
 }
 
 class TreeNode(var `val`: Int) {

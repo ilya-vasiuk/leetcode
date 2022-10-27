@@ -9,19 +9,7 @@ class DeleteTheMiddleNodeOfALinkedListTest {
 
   @Test
   fun example1() {
-    val head = ListNode(1).also {
-      it.next = ListNode(3).also {
-        it.next = ListNode(4).also {
-          it.next = ListNode(7).also {
-            it.next = ListNode(1).also {
-              it.next = ListNode(2).also {
-                it.next = ListNode(6)
-              }
-            }
-          }
-        }
-      }
-    }
+    val head = ListNode.fromList(1, 3, 4, 7, 1, 2, 6)
 
     val result = solution.deleteMiddle(head)
     assertContentEquals(listOf(1, 3, 4, 1, 2, 6), result?.toList())
@@ -29,13 +17,7 @@ class DeleteTheMiddleNodeOfALinkedListTest {
 
   @Test
   fun example2() {
-    val head = ListNode(1).also {
-      it.next = ListNode(2).also {
-        it.next = ListNode(3).also {
-          it.next = ListNode(4)
-        }
-      }
-    }
+    val head = ListNode.fromList(1, 2, 3, 4)
 
     val result = solution.deleteMiddle(head)
     assertContentEquals(listOf(1, 2, 4), result?.toList())
@@ -51,9 +33,7 @@ class DeleteTheMiddleNodeOfALinkedListTest {
 
   @Test
   fun twoElements() {
-    val head = ListNode(1).also {
-      it.next = ListNode(2)
-    }
+    val head = ListNode.fromList(1, 2)
 
     val result = solution.deleteMiddle(head)
     assertContentEquals(listOf(1), result?.toList())

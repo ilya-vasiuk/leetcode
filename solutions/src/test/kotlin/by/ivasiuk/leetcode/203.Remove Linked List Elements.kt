@@ -8,21 +8,9 @@ class RemoveLinkedListElementsTest {
 
   @Test
   fun example1() {
-    val head = ListNode(1).also {
-      it.next = ListNode(2).also {
-        it.next = ListNode(6).also {
-          it.next = ListNode(3).also {
-            it.next = ListNode(4).also {
-              it.next = ListNode(5).also {
-                it.next = ListNode(6)
-              }
-            }
-          }
-        }
-      }
-    }
-
+    val head = ListNode.fromList(1, 2, 6, 3, 4, 5, 6)
     val result = solution.removeElements(head, 6)
+
     assertContentEquals(listOf(1, 2, 3, 4, 5), result?.toList())
   }
 
@@ -33,13 +21,7 @@ class RemoveLinkedListElementsTest {
 
   @Test
   fun example3() {
-    val head = ListNode(7).also {
-      it.next = ListNode(7).also {
-        it.next = ListNode(7).also {
-          it.next = ListNode(7)
-        }
-      }
-    }
+    val head = ListNode.fromList(7, 7, 7, 7)
 
     assertNull(solution.removeElements(head, 7))
   }

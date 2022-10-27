@@ -9,26 +9,14 @@ class RemoveDuplicatesFromSortedListTest {
 
   @Test
   fun example1() {
-    val head = ListNode(1).also {
-      it.next = ListNode(1).also {
-        it.next = ListNode(2)
-      }
-    }
+    val head = ListNode.fromList(1, 1, 2)
 
     assertContentEquals(listOf(1, 2), solution.deleteDuplicates(head)?.toList())
   }
 
   @Test
   fun example2() {
-    val head = ListNode(1).also {
-      it.next = ListNode(1).also {
-        it.next = ListNode(2).also {
-          it.next = ListNode(3).also {
-            it.next = ListNode(3)
-          }
-        }
-      }
-    }
+    val head = ListNode.fromList(1, 1, 2, 3, 3)
 
     assertContentEquals(listOf(1, 2, 3), solution.deleteDuplicates(head)?.toList())
   }

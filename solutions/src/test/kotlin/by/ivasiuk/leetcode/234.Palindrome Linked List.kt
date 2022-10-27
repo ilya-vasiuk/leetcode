@@ -10,13 +10,7 @@ class PalindromeLinkedListTest {
 
   @Test
   fun example1() {
-    val head = ListNode(1).also {
-      it.next = ListNode(2).also {
-        it.next = ListNode(2).also {
-          it.next = ListNode(1)
-        }
-      }
-    }
+    val head = ListNode.fromList(1, 2, 2, 1)
 
     assertTrue {
       solution.isPalindrome(head)
@@ -25,9 +19,7 @@ class PalindromeLinkedListTest {
 
   @Test
   fun example2() {
-    val head = ListNode(1).also {
-      it.next = ListNode(2)
-    }
+    val head = ListNode.fromList(1, 2)
 
     assertFalse {
       solution.isPalindrome(head)
