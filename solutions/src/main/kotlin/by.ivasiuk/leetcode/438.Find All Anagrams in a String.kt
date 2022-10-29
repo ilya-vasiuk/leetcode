@@ -15,19 +15,20 @@ class FindAllAnagramsInAString {
     var left = 0
     var right = 0
 
-    while (right < p.length) {
-      if (chars.getOrDefault(s[right], 0) > 0) {
+    while (right < s.length) {
+      if ((chars[s[right]] ?: 0) > 0) {
         chars[s[right]] = chars[s[right]]!! - 1
         right++
+
         if (right - left == p.length) {
           result.add(left)
-        } else if (left == right) {
-          left++
-          right++
-        } else {
-          chars[s[right]] = chars[s[right]]!! + 1
-          left ++
         }
+      } else if (left == right) {
+        left++
+        right++
+      } else {
+        chars[s[left]] = 1 + (chars[s[left]] ?: 0)
+        left++
       }
     }
 
