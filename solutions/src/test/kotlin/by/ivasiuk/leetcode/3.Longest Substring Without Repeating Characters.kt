@@ -8,19 +8,30 @@ class LongestSubstringWithoutRepeatingCharactersTest {
 
   @Test
   fun example1() {
-    val result = solution.lengthOfLongestSubstring("abcabcbb")
-    assertEquals(3, result)
+    assertEquals(
+      expected = 3,
+      actual = solution.lengthOfLongestSubstring(
+        s = "abcabcbb"
+      ))
   }
 
   @Test
   fun example2() {
-    val result = solution.lengthOfLongestSubstring("bbbbb")
-    assertEquals(1, result)
+    assertEquals(
+      expected = 1,
+      actual = solution.lengthOfLongestSubstring(
+        s = "bbbbb"
+      )
+    )
   }
 
   @Test
   fun example3() {
-    val result = solution.lengthOfLongestSubstring("pwwkew")
-    assertEquals(3, result)
+    assertEquals(
+      expected = 3,
+      actual = solution.lengthOfLongestSubstring(
+        s = "pwwkew"
+      )
+    )
   }
 }
