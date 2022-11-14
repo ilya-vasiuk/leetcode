@@ -19,9 +19,9 @@ class ReverseWordsInAStringTest {
   @Test
   fun example2() {
     assertEquals(
-      expected = "  hello world  ",
+      expected = "world hello",
       actual = solution.reverseWords(
-        s = "world hello"
+        s = "  hello world  "
       )
     )
   }
