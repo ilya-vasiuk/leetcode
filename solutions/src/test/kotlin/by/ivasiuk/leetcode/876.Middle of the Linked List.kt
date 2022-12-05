@@ -12,7 +12,7 @@ class MiddleOfTheLinkedListTest {
     assertEquals(
       expected = 3,
       actual = solution.middleNode(
-        head = ListNode.fromList(
+        fast = ListNode.fromList(
           nums = intArrayOf(1, 2, 3, 4, 5)
         )
       )?.`val`
@@ -24,7 +24,7 @@ class MiddleOfTheLinkedListTest {
     assertEquals(
       expected = 4,
       actual = solution.middleNode(
-        head = ListNode.fromList(
+        fast = ListNode.fromList(
           nums = intArrayOf(1, 2, 3, 4, 5, 6)
         )
       )?.`val`

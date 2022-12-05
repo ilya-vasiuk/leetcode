@@ -7,15 +7,6 @@ import by.ivasiuk.leetcode.common.ListNode
  *   Middle of the Linked List</a>
  */
 class MiddleOfTheLinkedList {
-  fun middleNode(head: ListNode?): ListNode? {
-    var slow = head
-    var fast = head?.next
-
-    while (fast != null) {
-      slow = slow?.next
-      fast = fast.next?.next
-    }
-
-    return slow
-  }
+  fun middleNode(fast: ListNode?, slow: ListNode? = fast): ListNode? =
+    fast?.next?.let { middleNode(it.next, slow!!.next) } ?: slow
 }
