@@ -7,23 +7,23 @@ import java.util.Stack
  *   Evaluate Reverse Polish Notation</a>
  */
 class EvaluateReversePolishNotation {
-  fun evalRPN(tokens: Array<String>): Int {
-    val stack = Stack<String>()
-    tokens.forEach { stack.push(it) }
-
-    return process(stack)
-  }
+  fun evalRPN(tokens: Array<String>): Int =
+    Stack<String>().let { stack ->
+      tokens.forEach { stack.push(it) }
+      process(stack)
+    }
 
   private fun process(tokens: Stack<String>): Int =
-    when (val current = tokens.pop()) {
-      "*" -> process(tokens) * process(tokens)
-      "/" -> {
-        val a = process(tokens)
-        val b = process(tokens)
-        b / a
-      }
-      "+" -> process(tokens) + process(tokens)
-      "-" -> process(tokens) - process(tokens)
-      else -> current.toIntOrNull()!!
+    tokens.pop().let {
+      it.toIntOrNull() ?: eval(it, process(tokens), process(tokens))
+    }
+
+  private fun eval(operator: String, a: Int, b: Int): Int =
+    when (operator) {
+      "*" -> b * a
+      "/" -> b / a
+      "+" -> b + a
+      "-" -> b - a
+      else -> throw IllegalStateException()
     }
 }
