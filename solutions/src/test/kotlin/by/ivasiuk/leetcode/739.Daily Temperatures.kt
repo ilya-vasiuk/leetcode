@@ -19,9 +19,9 @@ class DailyTemperaturesTest {
   @Test
   fun example2() {
     assertContentEquals(
-      expected = intArrayOf(30, 40, 50, 60),
+      expected = intArrayOf(1, 1, 1, 0),
       actual = solution.dailyTemperatures(
-        temperatures = intArrayOf(1, 1, 1, 0),
+        temperatures = intArrayOf(30, 40, 50, 60),
       )
     )
   }
@@ -29,9 +29,9 @@ class DailyTemperaturesTest {
   @Test
   fun example3() {
     assertContentEquals(
-      expected = intArrayOf(30, 60, 90),
+      expected = intArrayOf(1, 1, 0),
       actual = solution.dailyTemperatures(
-        temperatures = intArrayOf(1, 1, 0),
+        temperatures = intArrayOf(30, 60, 90),
       )
     )
   }
