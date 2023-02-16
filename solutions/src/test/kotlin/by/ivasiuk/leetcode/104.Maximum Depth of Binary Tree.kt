@@ -9,24 +9,29 @@ class MaximumDepthOfBinaryTreeTest {
 
   @Test
   fun example1() {
-    val root = TreeNode(3).also {
-      it.left = TreeNode(9)
-      it.right = TreeNode(20).also {
-        it.left = TreeNode(15)
-        it.right = TreeNode(7)
-      }
-    }
-
-    assertEquals(3, solution.maxDepth(root))
+    assertEquals(
+      expected = 3,
+      actual = solution.maxDepth(
+        root = TreeNode(3).also {
+          it.left = TreeNode(9)
+          it.right = TreeNode(20).also {
+            it.left = TreeNode(15)
+            it.right = TreeNode(7)
+          }
+        }
+      )
+    )
   }
 
   @Test
   fun example2() {
-    val root = TreeNode(1).also {
-      it.right = TreeNode(2)
-    }
-
-    assertEquals(2, solution.maxDepth(root))
-
+    assertEquals(
+      expected = 2,
+      actual = solution.maxDepth(
+        root = TreeNode(1).also {
+          it.right = TreeNode(2)
+        }
+      )
+    )
   }
 }
