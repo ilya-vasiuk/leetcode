@@ -1,7 +1,7 @@
 package by.ivasiuk.leetcode
 
+import by.ivasiuk.leetcode.common.assertInnerCollectionsContentEquals
 import kotlin.test.Test
-import kotlin.test.assertContentEquals
 
 class SurroundedRegionsTest {
   private val solution = SurroundedRegions()
@@ -17,28 +17,30 @@ class SurroundedRegionsTest {
 
     solution.solve(board)
 
-    val expected = arrayOf(
-      charArrayOf('X', 'X', 'X', 'X'),
-      charArrayOf('X', 'X', 'X', 'X'),
-      charArrayOf('X', 'X', 'X', 'X'),
-      charArrayOf('X', 'O', 'X', 'X'),
+    assertInnerCollectionsContentEquals(
+      expected = arrayOf(
+        charArrayOf('X', 'X', 'X', 'X'),
+        charArrayOf('X', 'X', 'X', 'X'),
+        charArrayOf('X', 'X', 'X', 'X'),
+        charArrayOf('X', 'O', 'X', 'X'),
+      ),
+      actual = board
     )
-
-    for (i in board.indices) {
-      assertContentEquals(expected[i], board[i])
-    }
   }
 
   @Test
   fun example2() {
-    val board = arrayOf(charArrayOf('X'))
+    val board = arrayOf(
+      charArrayOf('X'),
+    )
 
     solution.solve(board)
 
-    val expected = arrayOf(charArrayOf('X'))
-
-    for (i in board.indices) {
-      assertContentEquals(expected[i], board[i])
-    }
+    assertInnerCollectionsContentEquals(
+      expected = arrayOf(
+        charArrayOf('X'),
+      ),
+      actual = board
+    )
   }
 }

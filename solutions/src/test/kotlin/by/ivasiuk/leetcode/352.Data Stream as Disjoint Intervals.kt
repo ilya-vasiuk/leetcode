@@ -1,8 +1,7 @@
 package by.ivasiuk.leetcode
 
+import by.ivasiuk.leetcode.common.assertInnerCollectionsContentEquals
 import kotlin.test.Test
-import kotlin.test.assertContentEquals
-import kotlin.test.assertEquals
 
 class SummaryRangesTest {
   @Test
@@ -10,13 +9,13 @@ class SummaryRangesTest {
     val solution = SummaryRanges()
 
     solution.addNum(1)
-    assertArraysContentEquals(
+    assertInnerCollectionsContentEquals(
       expected = arrayOf(intArrayOf(1, 1)),
       actual = solution.getIntervals()
     )
 
     solution.addNum(3)
-    assertArraysContentEquals(
+    assertInnerCollectionsContentEquals(
       expected = arrayOf(
         intArrayOf(1, 1),
         intArrayOf(3, 3),
@@ -25,7 +24,7 @@ class SummaryRangesTest {
     )
 
     solution.addNum(7)
-    assertArraysContentEquals(
+    assertInnerCollectionsContentEquals(
       expected = arrayOf(
         intArrayOf(1, 1),
         intArrayOf(3, 3),
@@ -35,7 +34,7 @@ class SummaryRangesTest {
     )
 
     solution.addNum(2)
-    assertArraysContentEquals(
+    assertInnerCollectionsContentEquals(
       expected = arrayOf(
         intArrayOf(1, 3),
         intArrayOf(7, 7),
@@ -44,24 +43,12 @@ class SummaryRangesTest {
     )
 
     solution.addNum(6)
-    assertArraysContentEquals(
+    assertInnerCollectionsContentEquals(
       expected = arrayOf(
         intArrayOf(1, 3),
         intArrayOf(6, 7),
       ),
       actual = solution.getIntervals()
     )
-  }
-
-  companion object {
-    private fun assertArraysContentEquals(
-      actual: Array<IntArray>,
-      expected: Array<IntArray>,
-    ) {
-      assertEquals(actual.size, expected.size)
-      for (i in expected.indices) {
-        assertContentEquals(expected[i], actual[i])
-      }
-    }
   }
 }

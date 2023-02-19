@@ -1,42 +1,33 @@
 package by.ivasiuk.leetcode
 
+import by.ivasiuk.leetcode.common.assertInnerCollectionsContentEquals
 import kotlin.test.Test
-import kotlin.test.assertContentEquals
-import kotlin.test.assertEquals
 
 class PalindromePartitioningTest {
   private val solution = PalindromePartitioning()
 
   @Test
   fun example1() {
-    val expected = listOf(
-      listOf("a", "a", "b"),
-      listOf("aa", "b")
+    assertInnerCollectionsContentEquals(
+      expected = listOf(
+        listOf("a", "a", "b"),
+        listOf("aa", "b")
+      ),
+      actual = solution.partition(
+        s = "aab"
+      )
     )
-
-    val actual = solution.partition(
-      s = "aab"
-    )
-
-    assertEquals(expected.size, actual.size)
-    for (i in expected.indices) {
-      assertContentEquals(expected[i], actual[i])
-    }
   }
 
   @Test
   fun example2() {
-    val expected = listOf(
-      listOf("a")
+    assertInnerCollectionsContentEquals(
+      expected = listOf(
+        listOf("a")
+      ),
+      actual = solution.partition(
+        s = "a"
+      )
     )
-
-    val actual = solution.partition(
-      s = "a"
-    )
-
-    assertEquals(expected.size, actual.size)
-    for (i in expected.indices) {
-      assertContentEquals(expected[i], actual[i])
-    }
   }
 }
