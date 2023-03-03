@@ -6,26 +6,16 @@ package by.ivasiuk.leetcode
  */
 class FindTheIndexOfTheFirstOccurrenceInAString {
   fun strStr(haystack: String, needle: String): Int {
-    var j = 0
-    var i = 0
-    var start = -1
-
-    while (i < haystack.length) {
-      if (haystack[i] == needle[j]) {
-        if (j == 0) {
-          start = i
+    for (i in 0..haystack.length - needle.length) {
+      for (j in needle.indices) {
+        if (needle[j] != haystack[i + j]) {
+          break
         }
 
-        if (++j == needle.length) {
-          return start
+        if (j == needle.length - 1) {
+          return i
         }
-      } else if (start != -1) {
-        j = 0
-        i = start
-        start = -1
       }
-
-      i++
     }
 
     return -1
