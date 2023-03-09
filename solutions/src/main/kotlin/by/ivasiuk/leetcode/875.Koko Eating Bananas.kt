@@ -16,7 +16,7 @@ class KokoEatingBananas {
       val mid = (left + right) / 2
 
       if (check(mid)) {
-        right = mid - 1
+        right = mid
       } else {
         left = mid + 1
       }
