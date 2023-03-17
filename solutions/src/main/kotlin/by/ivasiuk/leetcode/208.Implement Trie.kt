@@ -5,48 +5,41 @@ package by.ivasiuk.leetcode
  *   Implement Trie (Prefix Tree)</a>
  */
 class Trie {
-  val root = TrieNode()
+  private val root = TrieNode()
 
   fun insert(word: String) {
-    var cur = root
+    var curr = root
 
-    for (char in word) {
-      cur = cur.map.getOrPut(char) { TrieNode() }!!
+    word.forEach { char ->
+      curr = curr.children[char - 'a'] ?: TrieNode()
+        .also { curr.children[char - 'a'] = it }
     }
 
-    cur.end = true
+    curr.isWord = true
   }
 
   fun search(word: String): Boolean {
-    var cur = root
+    var curr = root
 
-    for (char in word) {
-      if (cur.map.contains(char)) {
-        cur = cur.map[char]!!
-      } else {
-        return false
-      }
+    word.forEach { char ->
+      curr = curr.children[char - 'a'] ?: return false
     }
 
-    return cur.end
+    return curr.isWord
   }
 
   fun startsWith(prefix: String): Boolean {
-    var cur = root
+    var curr = root
 
-    for (char in prefix) {
-      if (cur.map.contains(char)) {
-        cur = cur.map[char]!!
-      } else {
-        return false
-      }
+    prefix.forEach { char ->
+      curr = curr.children[char - 'a'] ?: return false
     }
 
     return true
   }
-
-  data class TrieNode(
-    val map: MutableMap<Char, TrieNode?> = mutableMapOf(),
-    var end: Boolean = false,
-  )
 }
+
+data class TrieNode(
+  var isWord: Boolean = false,
+  val children: Array<TrieNode?> = arrayOfNulls(26)
+)
