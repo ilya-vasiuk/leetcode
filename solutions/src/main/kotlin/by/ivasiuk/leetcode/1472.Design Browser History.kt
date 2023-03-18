@@ -8,9 +8,10 @@ class BrowserHistory(homepage: String) {
   var current = Entry(homepage)
 
   fun visit(url: String) {
-    val new = Entry(url, previous = current)
-    current.next = new
-    current = new
+    Entry(url, previous = current).also {
+      current.next = it
+      current = it
+    }
   }
 
   fun back(steps: Int): String {
