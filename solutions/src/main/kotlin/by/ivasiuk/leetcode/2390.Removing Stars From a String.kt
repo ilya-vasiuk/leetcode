@@ -7,8 +7,8 @@ package by.ivasiuk.leetcode
 class RemovingStarsFromAString {
   fun removeStars(s: String) =
     buildString {
-      s.forEach { c ->
-        if (c == '*') deleteAt(length - 1) else append(c)
+      s.forEach {
+        if (it == '*') deleteCharAt(lastIndex) else append(it)
       }
     }
 }
