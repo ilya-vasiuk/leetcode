@@ -42,3 +42,28 @@ class TreeNode(var `val`: Int) {
 class Node(var `val`: Int) {
   var neighbors = ArrayList<Node?>()
 }
+
+class UnionFind(size: Int) {
+  private val parent = IntArray(size) { it }
+  private val rank = IntArray(size)
+
+  fun find(x: Int): Int {
+    if (parent[x] != x) {
+      parent[x] = find(parent[x])
+    }
+
+    return parent[x]
+  }
+
+  fun unionSet(x: Int, y: Int) {
+    val xSet = find(x)
+    val ySet = find(y)
+
+    when {
+      xSet == ySet -> return
+      rank[xSet] < rank[ySet] -> parent[xSet] = ySet
+      rank[xSet] > rank[ySet] -> parent[ySet] = xSet
+      else -> parent[ySet] = xSet.also { rank[it]++ }
+    }
+  }
+}
