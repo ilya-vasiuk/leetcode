@@ -9,11 +9,9 @@ import by.ivasiuk.leetcode.common.ListNode
  */
 class SwapNodesInPairs {
   fun swapPairs(head: ListNode?): ListNode? {
-    if (head?.next == null) {
-      return head
+    val dummy = ListNode(0).apply {
+      next = head
     }
-
-    val dummy = ListNode(0)
 
     var prev = dummy
     var curr = head
