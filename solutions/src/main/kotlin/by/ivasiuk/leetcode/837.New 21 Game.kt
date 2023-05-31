@@ -1,7 +1,5 @@
 package by.ivasiuk.leetcode
 
-import kotlin.math.round
-
 /**
  * @see <a href="https://leetcode.com/problems/new-21-game/">New 21 Game</a>
  */
@@ -30,6 +28,6 @@ class New21Game {
       }
     }
 
-    return round(probability * 100_000) / 100_000
+    return probability
   }
 }

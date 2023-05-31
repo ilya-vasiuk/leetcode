@@ -14,7 +14,8 @@ class New21GameTest {
         n = 10,
         k = 1,
         maxPts = 10,
-      )
+      ),
+      absoluteTolerance = 1e-5,
     )
   }
 
@@ -26,7 +27,8 @@ class New21GameTest {
         n = 6,
         k = 1,
         maxPts = 10,
-      )
+      ),
+      absoluteTolerance = 1e-5,
     )
   }
 
@@ -38,7 +40,8 @@ class New21GameTest {
         n = 21,
         k = 17,
         maxPts = 10,
-      )
+      ),
+      absoluteTolerance = 1e-5,
     )
 
   }
