@@ -13,13 +13,12 @@ class UndergroundSystem {
   }
 
   fun checkOut(id: Int, stationName: String, t: Int) {
-    val (startStation, startTime) = checkins[id]!!
-
-    travels.computeIfAbsent(Pair(startStation, stationName)) { mutableListOf() }
-      .add(t - startTime)
+    checkins[id]!!.let { (startStation, startTime) ->
+      travels.computeIfAbsent(Pair(startStation, stationName)) { mutableListOf() }
+        .add(t - startTime)
+    }
   }
 
-  fun getAverageTime(startStation: String, endStation: String): Double {
-    return travels[Pair(startStation, endStation)]!!.let { it.sum().div(it.size.toDouble()) }
-  }
+  fun getAverageTime(startStation: String, endStation: String): Double =
+    travels[Pair(startStation, endStation)]!!.let { it.sum().div(it.size.toDouble()) }
 }
