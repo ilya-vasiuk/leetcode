@@ -14,23 +14,24 @@ class ShortestPathInBinaryMatrix {
 
     val m = grid.size
     val n = grid[0].size
-    val queue = LinkedList<Triple<Int, Int, Int>>()
-    queue.push(Triple(0, 0, 1))
+    val queue = LinkedList<Triple<Int, Int, Int>>().apply {
+      offer(Triple(0, 0, 1))
+    }
+    val directions = setOf(Pair(1,1), Pair(1,0), Pair(0, 1), Pair(-1, 1), Pair(1, -1), Pair(0, -1), Pair(-1, 0), Pair(-1, -1))
+
     grid[0][0] = 1
-
     while (queue.size > 0) {
-      val (i, j, step) = queue.pollLast()
+      val size = queue.size
+      for (k in 0 until size) {
+        val (i, j, step) = queue.poll()
 
-      if (i == m - 1 && j == n - 1) {
-        return step
-      } else {
-        for (diffI in -1..1) {
-          for (diffJ in -1..1) {
-            if (diffI != 0 || diffJ != 0) {
-              if (i + diffI in 0 until m && j + diffJ in 0 until n && grid[i + diffI][j + diffJ] == 0) {
-                grid[i + diffI][j + diffJ] = 1
-                queue.push(Triple(i + diffI, j + diffJ, step + 1))
-              }
+        if (i == m - 1 && j == n - 1) {
+          return step
+        } else {
+          directions.forEach { (diffI, diffJ) ->
+            if (i + diffI in 0 until m && j + diffJ in 0 until n && grid[i + diffI][j + diffJ] == 0) {
+              grid[i + diffI][j + diffJ] = 1
+              queue.offer(Triple(i + diffI, j + diffJ, step + 1))
             }
           }
         }
