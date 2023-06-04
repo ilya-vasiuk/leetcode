@@ -8,32 +8,31 @@ import java.util.*
  */
 class NumberOfProvinces {
   fun findCircleNum(isConnected: Array<IntArray>): Int {
-    val visited = mutableSetOf<Int>()
+    val visited = BooleanArray(isConnected.size)
+    val queue = LinkedList<Int>()
     var provinces = 0
 
     for (i in isConnected.indices) {
-      if (!visited.contains(i)) {
-        visit(i, isConnected, visited)
+      if (!visited[i]) {
+        queue.offer(i)
+        visited[i] = true
+
+        while (queue.isNotEmpty()) {
+          val current = queue.poll()
+          visited[current] = true
+
+          for (neighbour in isConnected.indices) {
+            if (isConnected[current][neighbour] == 1 && !visited[neighbour]) {
+              queue.offer(neighbour)
+              visited[neighbour] = true
+            }
+          }
+        }
+
         provinces++
       }
     }
 
     return provinces
-  }
-
-  private fun visit(city: Int, isConnected: Array<IntArray>, visited: MutableSet<Int>) {
-    val queue = LinkedList<Int>()
-    queue.add(city)
-
-    while (queue.isNotEmpty()) {
-      val current = queue.pop()
-      visited.add(current)
-
-      for (neighbour in isConnected.indices) {
-        if (isConnected[current][neighbour] == 1 && !visited.contains(neighbour)) {
-          queue.add(neighbour)
-        }
-      }
-    }
   }
 }
