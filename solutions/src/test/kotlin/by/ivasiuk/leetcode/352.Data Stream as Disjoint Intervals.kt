@@ -3,10 +3,10 @@ package by.ivasiuk.leetcode
 import by.ivasiuk.leetcode.common.assertInnerCollectionsContentEquals
 import kotlin.test.Test
 
-class SummaryRangesTest {
+class DataStreamAsDisjointIntervalsTest {
   @Test
   fun example1() {
-    val solution = SummaryRanges()
+    val solution = DataStreamAsDisjointIntervals()
 
     solution.addNum(1)
     assertInnerCollectionsContentEquals(

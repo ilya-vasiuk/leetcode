@@ -7,7 +7,7 @@ import java.util.*
  * @see <a href="https://leetcode.com/problems/two-sum/">
  *   Data Stream as Disjoint Intervals</a>
  */
-class SummaryRanges {
+class DataStreamAsDisjointIntervals {
   private val tree = TreeMap<Int, IntArray>()
 
   fun addNum(value: Int) {
