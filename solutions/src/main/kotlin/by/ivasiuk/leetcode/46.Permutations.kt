@@ -1,31 +1,29 @@
 package by.ivasiuk.leetcode
 
+import java.util.*
+
 /**
  * @see <a href="https://leetcode.com/problems/permutations-ii/">Permutations II</a>
  */
 class Permutations {
   fun permute(nums: IntArray): List<List<Int>> {
-    val result = mutableListOf<List<Int>>()
+    val queue = LinkedList<List<Int>>()
+    queue.add(emptyList())
 
-    generate(nums, emptyList(), nums.size, result)
+    while (true) {
+      val size = queue.size
 
-    return result
-  }
+      for(num in 1..size) {
+        val f = queue.removeFirst()
 
-  private fun generate(
-    nums: IntArray,
-    combination: List<Int>,
-    size: Int,
-    result: MutableList<List<Int>>
-  ) {
-    if (combination.size == size) {
-      result.add(combination)
-    } else {
-      for (num in nums) {
-        if (!combination.contains(num)) {
-          generate(nums, combination + num, size, result)
+        nums.forEach {
+          if(it !in f) queue.addLast(f + it)
         }
       }
+
+      if (queue.peek().size == nums.size) break
     }
+
+    return queue.toList()
   }
 }
