@@ -8,13 +8,23 @@ class MedianOfTwoSortedArraysTest {
 
   @Test
   fun example1() {
-    val result = solution.findMedianSortedArrays(intArrayOf(1, 3), intArrayOf(2))
-    assertEquals(2.0, result)
+    assertEquals(
+      expected = 2.0,
+      actual = solution.findMedianSortedArrays(
+        nums1 = intArrayOf(1, 3),
+        nums2 = intArrayOf(2)
+      )
+    )
   }
 
   @Test
   fun example2() {
-    val result = solution.findMedianSortedArrays(intArrayOf(1, 2), intArrayOf(3, 4))
-    assertEquals(2.5, result)
+    assertEquals(
+      expected = 2.5,
+      actual = solution.findMedianSortedArrays(
+        nums1 = intArrayOf(1, 2),
+        nums2 = intArrayOf(3, 4)
+      )
+    )
   }
 }
