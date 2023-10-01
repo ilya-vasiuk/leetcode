@@ -8,24 +8,25 @@ class PascalsTriangleTest {
 
   @Test
   fun example1() {
-    val expected = listOf(
-      listOf(1),
-      listOf(1, 1),
-      listOf(1, 2, 1),
-      listOf(1, 3, 3, 1),
-      listOf(1, 4, 6, 4, 1),
+    assertContentEquals(
+      expected = listOf(
+        listOf(1),
+        listOf(1, 1),
+        listOf(1, 2, 1),
+        listOf(1, 3, 3, 1),
+        listOf(1, 4, 6, 4, 1),
+      ),
+      actual = solution.generate(5)
     )
-
-    val result = solution.generate(5)
-    assertContentEquals(expected, result)
   }
 
   @Test
   fun example2() {
-    val expected = listOf(
-      listOf(1),
+    assertContentEquals(
+      expected = listOf(
+        listOf(1),
+      ),
+      actual = solution.generate(1)
     )
-
-    assertContentEquals(expected, solution.generate(1))
   }
 }
