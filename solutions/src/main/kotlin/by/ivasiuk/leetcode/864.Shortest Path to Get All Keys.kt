@@ -10,7 +10,7 @@ class ShortestPathToGetAllKeys {
     val n = grid[0].length
     val s = (0..m * n).first { '@' == grid[it / n][it % n] }
     val visited = HashSet<Step>()
-    val allKeys = (1 shl (grid.map { it.count { it.isLowerCase() } }.sum()!!)) - 1
+    val allKeys = (1 shl (grid.sumOf { it.count { it.isLowerCase() } })) - 1
     var steps = -1
 
     return with(ArrayDeque<Step>()) {
@@ -43,7 +43,7 @@ class ShortestPathToGetAllKeys {
     }
   }
 
-  private fun bit(c: Char) = 1 shl (c.toLowerCase() - 'a')
+  private fun bit(c: Char) = 1 shl (c - 'a')
 
   data class Step(val x: Int, val y: Int, val keys: Int)
 
