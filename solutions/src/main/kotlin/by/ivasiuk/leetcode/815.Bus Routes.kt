@@ -8,43 +8,43 @@ import java.util.*
  */
 class BusRoutes {
   fun numBusesToDestination(routes: Array<IntArray>, source: Int, target: Int): Int {
-    val visited: HashSet<Int> = HashSet()
-    val q: Queue<Int> = LinkedList()
-    val map: HashMap<Int, MutableList<Int>> = HashMap()
-    var result = 0
-
     if (source == target) {
       return 0
     }
 
+    val visited = mutableSetOf<Int>()
+    val map = mutableMapOf<Int, MutableList<Int>>()
+    var result = 0
+
     for (i in routes.indices) {
-      for (j in 0 until routes[i].size) {
-        map.getOrPut(routes[i][j]) { mutableListOf() }.add(i)
+      for (j in routes[i].indices) {
+        map.getOrPut(routes[i][j]) { mutableListOf() } += i
       }
     }
 
-    q.offer(source)
-    while (q.isNotEmpty()) {
-      val length = q.size
-      result++
+    with(LinkedList<Int>()) {
+      offer(source)
 
-      for (i in 0 until length) {
-        val current = q.poll()
-        val buses = map[current]!!
+      while (isNotEmpty()) {
+        val length = size
+        result++
 
-        for (bus in buses) {
-          if (visited.contains(bus)) {
-            continue
-          }
+        for (i in 0 until length) {
+          val current = poll()
 
-          visited.add(bus)
+          map[current]!!.forEach { bus ->
+            if (!visited.contains(bus)) {
 
-          for (j in 0 until routes[bus].size) {
-            if (routes[bus][j] == target) {
-              return result
+              visited.add(bus)
+
+              for (j in routes[bus].indices) {
+                if (routes[bus][j] == target) {
+                  return result
+                }
+
+                offer(routes[bus][j])
+              }
             }
-
-            q.offer(routes[bus][j])
           }
         }
       }
