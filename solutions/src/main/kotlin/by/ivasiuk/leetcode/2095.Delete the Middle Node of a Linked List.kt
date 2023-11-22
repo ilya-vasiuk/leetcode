@@ -22,7 +22,7 @@ class DeleteTheMiddleNodeOfALinkedList {
         }
 
         currentNode?.`val` = currentNode?.next!!.`val`
-        currentNode.next = currentNode.next?.next
+        currentNode?.next = currentNode?.next?.next
 
         head
       }

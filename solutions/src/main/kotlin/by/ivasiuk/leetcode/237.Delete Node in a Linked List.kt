@@ -9,6 +9,6 @@ import by.ivasiuk.leetcode.common.ListNode
 class DeleteNodeInALinkedList {
   fun deleteNode(node: ListNode?) {
     node?.`val` = node?.next?.`val`!!
-    node.next = node.next?.next
+    node?.next = node?.next?.next
   }
 }
