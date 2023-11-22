@@ -1,5 +1,5 @@
 plugins {
-  kotlin("jvm").version("1.8.0")
+  kotlin("jvm").version("1.9.20")
   application
 }
 
@@ -9,8 +9,14 @@ repositories {
 
 dependencies {
   implementation(platform(kotlin("bom")))
-//  implementation(kotlin("stdlib-jdk8"))
 
   testImplementation("org.jetbrains.kotlin:kotlin-test")
   testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+}
+
+kotlin {
+  compilerOptions {
+    languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0)
+    apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0)
+  }
 }
