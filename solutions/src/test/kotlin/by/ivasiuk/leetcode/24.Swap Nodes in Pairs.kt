@@ -13,9 +13,7 @@ class SwapNodesInPairsTest {
     assertContentEquals(
       expected = listOf(2, 1, 4, 3),
       actual = solution.swapPairs(
-        head = ListNode.fromList(
-          nums = intArrayOf(1, 2, 3, 4)
-        )
+        head = ListNode.fromList(1, 2, 3, 4)
       )?.toList()
     )
   }
@@ -34,9 +32,7 @@ class SwapNodesInPairsTest {
     assertContentEquals(
       expected = listOf(1),
       actual = solution.swapPairs(
-        head = ListNode.fromList(
-          nums = intArrayOf(1)
-        )
+        head = ListNode.fromList(1)
       )?.toList()
     )
   }

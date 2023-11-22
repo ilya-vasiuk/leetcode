@@ -12,7 +12,6 @@ class PrintInOrder {
 
   @Throws(InterruptedException::class)
   fun first(printFirst: Runnable) {
-    // printFirst.run() outputs "first". Do not change or remove this line.
     printFirst.run()
     firstRan.countDown()
   }
@@ -20,7 +19,6 @@ class PrintInOrder {
   @Throws(InterruptedException::class)
   fun second(printSecond: Runnable) {
     firstRan.await()
-    // printSecond.run() outputs "second". Do not change or remove this line.
     printSecond.run()
     secondRan.countDown()
   }
@@ -28,7 +26,6 @@ class PrintInOrder {
   @Throws(InterruptedException::class)
   fun third(printThird: Runnable) {
     secondRan.await()
-    // printThird.run() outputs "third". Do not change or remove this line.
     printThird.run()
   }
 }

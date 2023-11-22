@@ -1,13 +1,11 @@
 package by.ivasiuk.leetcode
 
-import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 
 class PrintInOrderTest {
   private val solution = PrintInOrder()
 
-  @Ignore
   @Test
   fun example1() {
     val sout = mutableSetOf<String>()

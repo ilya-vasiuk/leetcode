@@ -15,8 +15,8 @@ class Dota2Senate {
     }
 
     while (dires.isNotEmpty() && radiants.isNotEmpty()) {
-      with(if (dires.first < radiants.first) dires else radiants) {
-        offer(maxOf(dires.last, radiants.last) + 1)
+      with(if (dires.first() < radiants.first()) dires else radiants) {
+        offer(maxOf(dires.last(), radiants.last()) + 1)
       }
 
       dires.poll()

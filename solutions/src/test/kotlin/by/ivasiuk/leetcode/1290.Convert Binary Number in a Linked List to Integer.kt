@@ -12,9 +12,7 @@ class ConvertBinaryNumberInALinkedListToIntegerTest {
     assertEquals(
       expected = 5,
       actual = solution.getDecimalValue(
-        head = ListNode.fromList(
-          nums = intArrayOf(1, 0, 1)
-        )
+        head = ListNode.fromList(1, 0, 1)
       )
     )
   }
@@ -24,9 +22,7 @@ class ConvertBinaryNumberInALinkedListToIntegerTest {
     assertEquals(
       expected = 0,
       actual = solution.getDecimalValue(
-        head = ListNode.fromList(
-          nums = intArrayOf(0)
-        )
+        head = ListNode.fromList(0)
       )
     )
   }

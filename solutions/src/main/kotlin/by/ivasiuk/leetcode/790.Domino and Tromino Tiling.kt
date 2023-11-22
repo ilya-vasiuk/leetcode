@@ -12,7 +12,6 @@ class DominoAndTrominoTiling {
       return n
     }
 
-    val modulo = 1000_000_007
     val memo = LinkedList<Long>().also {
       it.offer(1)
       it.offer(2)
@@ -20,10 +19,14 @@ class DominoAndTrominoTiling {
     }
 
     for (i in 4..n) {
-      memo.offer((2 * memo.last + memo.first).rem(modulo))
+      memo.offer((2 * memo.last() + memo.first()).rem(MODULO))
       memo.pollFirst()
     }
 
-    return memo.last.toInt()
+    return memo.last().toInt()
+  }
+
+  companion object {
+    const val MODULO = 1_000_000_007
   }
 }
