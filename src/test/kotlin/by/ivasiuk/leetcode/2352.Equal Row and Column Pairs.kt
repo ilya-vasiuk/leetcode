@@ -1,7 +1,6 @@
 package by.ivasiuk.leetcode
 
 import kotlin.test.Test
-import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 
 class EqualRowAndColumnPairsTest {
