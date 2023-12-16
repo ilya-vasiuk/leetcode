@@ -10,13 +10,13 @@ class ValidAnagram {
       return false
     }
 
-    val count = IntArray(26) { 0 }
+    return with(IntArray(26)) {
+      for (i in s.indices) {
+        this[s[i] - 'a']++
+        this[t[i] - 'a']--
+      }
 
-    for (i in s.indices) {
-      count[s[i].minus('a')]++
-      count[t[i].minus('a')]--
+      all { it == 0 }
     }
-
-    return count.all { it == 0 }
   }
 }
