@@ -17,7 +17,7 @@ class DecodeWays {
         result[i] = result[i - 1]
       }
       if (i > 1) {
-        if ((s[i-2] - '0') * 10 + (s[i-1] - '0') in 10..26) {
+        if ((s[i - 2] - '0') * 10 + (s[i - 1] - '0') in 10..26) {
           result[i] += result[i - 2]
         }
       }
