@@ -26,7 +26,7 @@ class MinimumHeightTreesTest {
     assertContentEquals(
       expected = listOf(3, 4),
       actual = solution.findMinHeightTrees(
-        n = 5,
+        n = 6,
         edges = arrayOf(
           intArrayOf(3, 0),
           intArrayOf(3, 1),
